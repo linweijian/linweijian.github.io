@@ -1,0 +1,29 @@
+@charset "utf-8";blockquote,body,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,html,iframe,input,legend,li,ol,p,pre,td,textarea,th,ul{padding:0;margin:0}
+html{-webkit-overflow-scrolling:touch;-webkit-text-size-adjust:100%}
+body{-webkit-overflow-scrolling:touch;-webkit-box-sizing:border-box;box-sizing:border-box}
+a,body,input,input:focus,select,select:focus,textarea,textarea:focus{-webkit-tap-highlight-color:transparent;outline:0;-webkit-appearance:none}
+li{list-style-type:none}
+table{border-collapse:collapse;border-spacing:0}
+fieldset{border:none}
+legend{display:none}
+a:active,a:hover,button{outline:0}
+input[type=checkbox],input[type=radio]{-webkit-box-sizing:border-box;box-sizing:border-box}
+b,em,i{font-style:normal;font-weight:400}
+a{text-decoration:none;-webkit-tap-highlight-color:transparent}
+html{background:#06081f}
+ 
+/*pop*/
+.pop{width: 100%;height: 100%;background: rgba(0,0,0,0.9);position: absolute;top: 0;left: 0;}
+.pop:before{content: "";position: absolute;top: 8.025rem;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);background-size: 100%;background-repeat: no-repeat;}
+.pop .close{width: 1.9rem;height: 1.875rem;background: url(close.png) no-repeat;background-size: 100%;position: absolute;left: 50%;margin-left:-0.95rem;top: 20.575rem;}
+
+.pop.kfc:before{width:13.2rem;height: 15.4rem;background-image: url(kfc2.png);top: 5.6rem;}
+ .pop img{width: 11.0rem;position: absolute;top: 15.4rem;left: 3.9rem;}
+ 
+.pop.kfc .close{top: 22.675rem;}
+.pop.kfcintro .close{top: 29.2rem;}
+.pop.more .close{top: 20.5rem;}
+.pop.notwon .close{top: 21.025rem;}
+
+.poppage,.poppage body{height:100%;overflow:hidden!important}
+ 
