@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>酷狗音乐开放组件演示页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #bg {
+            background: url(https://webimg.kgimg.com/74aac3f66922134e94cf4235fdccfd72.jpg) no-repeat;
+            background-position: top center;
+            background-size: cover;
+            height: 100%;
+        }
+
+        #btn {
+            background-color: #fff;
+            background-image: linear-gradient(90deg, rgba(12, 89, 169, 0.21) 0%, rgba(255, 255, 255, 0) 100%);
+            opacity: 0.961;
+            width: 2.61rem;
+            height: .75rem;
+            line-height: .75rem;
+            font-size: .26rem;
+            color: rgb(7, 39, 122);
+            display: block;
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0.375rem;
+            text-align: center;
+        }
+
+        #arrow {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAoCAYAAADzL6qcAAABk0lEQVRIia3WL0iDQRjH8d82WBBFQZbENhwoC1pMCmLTZFtcW7VptInJqmnRFW1abCbLBE3+D2pSgyjCK0y/hnk4z9u7PS87eMpxfN73nrt77lKAErYBSeOSTiVFApJEEXii2W6AXBJkGLjib6ukjdPJSKpJynv9l9a/2eR/2wZkQcoB5AjIWqBpIPKQeyDnxnSDjAAPHvIOTLWO64RkgWMP+QJK/thOUDWQl43Q2DhkOYAcABkLNA80POQCGGz34VBnHnj2kBegEJcGv6MfOPOQBrAYh/hQCtgL5GW1E+JDawGk9vOBrqElmvujtZ0Afd0gDioAbx7yCIx2izjIz8sHMGtBHPTqQRUrAigtKfKKVLIiDuwGpjaTZGo9S3a75a9jXP64DbmDcUPGHZEVKyTaH9oFKyR6VEZchArbOcbC5iJUavcxlloX1QC2ngTq2XUk2l+Qk1ZIhK/sO4xXtotyIF/mR4SL0LNmKwmUAQ4D2Jz1xfYpqSTp2usfs/6RiyK/x+gWyKUg8fN4SNKEpLqk6BvqWhhYlo4y0wAAAABJRU5ErkJggg==) no-repeat;
+            background-size: contain;
+            width: .44rem;
+            height: .44rem;
+            left: .29rem;
+            top: .34rem;
+            position: absolute;
+            z-index: 2;
+        }
+    </style>
+    <script>
+        window.onresize = function () {
+            var html = document.querySelector("html");
+            var rem = html.offsetWidth / 7.2;
+            html.style.fontSize = rem + "px";
+        }
+        window.onresize();
+        function output() {
+            var p = document.createElement("p")
+            var data = [];
+            for (var i = 0; i < arguments.length; i++) {
+                data.push(JSON.stringify(arguments[i]))
+            }
+            p.innerText = data.join(" ")
+            document.getElementById("out").appendChild(p)
+        }
+    </script>
+</head>
+
+<body><script> window._REJECT_DATA_= {"title":"H5播放插件"};</script><script>window._VO_ENV_='prd';window._VO_TPL_ID_="bfea6290-226d-11ea-8b2a-c3556712becb";window._VO_TPL_VERSION_="0.1.62";</script>
+    <div id="arrow" style="display: none;"></div>
+    <div id="bg"></div>
+    <span id="btn">更换歌曲</span>
+    <script src="https://activity.kugou.com/vo-activity/fa339ef0-2270-11ea-8b2a-c3556712becb/dist/kgPlayer.min.js"></script>
+    <script>
+        document.getElementById("btn").onclick = function () {
+            kgPlayer.search.initSearch({
+                businessId: "experience"
+            })
+            kgPlayer.search.show()
+        }
+        document.getElementById("arrow").onclick = function () {
+            history.go(-1)
+        }
+        if (document.referrer) {
+            document.getElementById("arrow").style.display = "block"
+        }
+        kgPlayer.player.initPlayer({
+            businessId: "kugou_test"
+        })
+        kgPlayer.player.playSong({
+            hash: "55033969CDA6D6072CF188FFCF6CF090",
+            album_audio_id: "113328098"
+        })
+        kgPlayer.bar.setSkin({
+            panel: "#093594",
+            song: "#FFFFFF",
+            jump: "#00BAFF"
+        })
+        kgPlayer.listener.listen("childChoiceSongCallback", function (data) {
+            //播放歌曲
+            kgPlayer.player.playSong({
+                hash: data.hash,
+                album_audio_id: data.album_audio_id
+            })
+        })
+    </script>
+</body>
+
+</html><script src="https://staticssl.kugou.com/common/js/min/hijacked-min.js" defer></script>
